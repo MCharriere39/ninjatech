@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Lobster } from "next/font/google";
 import "./style/globals.css";
+import NavBar from "./component/navBar";
+import Footer from "./component/footer";
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './component/theme';
+import { Height } from "@mui/icons-material";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +24,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className} >
+        <AppRouterCacheProvider>
+            <ThemeProvider theme={theme}>
+              <NavBar />
+              <div style={{minHeight:"100vh"}}>
+                {children}
+              </div>
+              <Footer />
+            </ThemeProvider>
+        </AppRouterCacheProvider>
+      </body>
     </html>
   );
 }
