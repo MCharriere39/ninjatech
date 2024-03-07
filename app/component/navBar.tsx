@@ -12,6 +12,7 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { Lobster } from "next/font/google";
+import Link from 'next/link';
 const lobster = Lobster({ weight: "400",subsets:["latin"] });
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -60,7 +61,7 @@ export default function SearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
+         {/* <IconButton
             size="large"
             edge="start"
             color="inherit"
@@ -68,14 +69,14 @@ export default function SearchAppBar() {
             sx={{ mr: 2 }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton>*/}
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: {xs:'none', sm: 'block' } }}
           >
-            <span className={lobster.className}> La Ninjatech</span>
+           <Link style={{color:"white",textDecoration:"none"}} href="/"><span className={lobster.className}> La Ninjatech</span></Link> 
           </Typography>
           <Search>
             <SearchIconWrapper>

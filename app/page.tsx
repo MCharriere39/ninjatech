@@ -1,8 +1,7 @@
 
 
 import Image from "next/image";
-import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
-import "./style/globals.css";
+
 import { Lobster } from "next/font/google";
 import Link from 'next/link';
 
@@ -36,7 +35,10 @@ export default function Home() {
               <div style={{textAlign:"center"}} className="col">
                 <button style={{...btnCookingSelect, 
                   marginTop:"4vh",
-                  backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('/images/AirCrisp.webp')",}}
+                  backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('/images/AirCrisp.webp')",
+                  border:"solid #689f38 4px"
+                }}
+                  
                   type="button" className="btn btn-primary">AIR CRISP</button>
               </div>
             </Link>
@@ -46,7 +48,9 @@ export default function Home() {
               <Link href="/pressure">
                 <button 
                   style={{...btnCookingSelect,    
-                  backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('/images/Pressure.webp')",}}
+                  backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('/images/Pressure.webp')",
+                  border:"solid #0072BC 4px"
+                }}
                   type="button" 
                   className="btn btn-primary">PRESSURE COOKING</button>
               </Link>
@@ -56,7 +60,9 @@ export default function Home() {
             <Link href="/tenderCrisp">
               <div style={{textAlign:"center"}} className="col">
                 <button style={{...btnCookingSelect, 
-                  backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('/images/TenderCrisp.webp')",}}
+                  backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('/images/TenderCrisp.webp')",
+                  border:"solid #E0A846 4px"
+                  }}
                   type="button" 
 
                   className="btn btn-primary">TENDER CRISP</button>
