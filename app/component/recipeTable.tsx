@@ -3,11 +3,42 @@ import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import { styled } from '@mui/material/styles';
+
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: "#689f38",
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: "white",
+  },
+  '&:nth-of-type(odd):hover': {
+    backgroundColor: theme.palette.action.selected,
+  },
+  '&:nth-of-type(even)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  '&:nth-of-type(even):hover': {
+    backgroundColor: theme.palette.action.selected,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}));
 
 interface Column {
   id: 'ingredient' | 'quantite' | 'preparation' | 'huile' | 'temperature' | 'tempsCuisson' | 'melanger';
@@ -81,41 +112,42 @@ export default function StickyHeadTable(props:any) {
       <TableContainer >
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
-            <TableRow>
+            <StyledTableRow>
               {columns.map((column) => (
-                <TableCell
+                <StyledTableCell
                   key={column.id}
                   align={column.align}
                   style={{ minWidth: column.minWidth }}
                 >
                   {column.label}
-                </TableCell>
+                </StyledTableCell>
               ))}
-            </TableRow>
+            </StyledTableRow>
           </TableHead>
           <TableBody>
             {rows
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                  <StyledTableRow hover role="checkbox" tabIndex={-1} key={row.ingredient}>
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell key={column.id} align={column.align}>
+                        <StyledTableCell key={column.id} align={column.align}>
                           {column.format && typeof value === 'number'
                             ? column.format(value)
                             : value}
-                        </TableCell>
+                        </StyledTableCell>
                       );
                     })}
-                  </TableRow>
+                  </StyledTableRow>
                 );
               })}
           </TableBody>
         </Table>
       </TableContainer>
       <TablePagination
+        labelRowsPerPage="Lignes par page"
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
         count={rows.length}
