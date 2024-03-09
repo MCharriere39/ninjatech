@@ -1,34 +1,40 @@
+import { AirCrispAliment } from "../data/alimentType";
+import "../style/card.css";
 
-export default function test() {
+interface AirCrispCardProps {
+    aliment: AirCrispAliment;
+  }
 
+export default function airCrispCard({aliment} : AirCrispCardProps) {
     return (
+
         <div className="card" style={{margin:"5px"}}>
-        <h5 style={{backgroundColor:"#689f38",color:"white"}} className="card-header text-center">Frite</h5>
-        <div className="card-body">
+        <h5 style={{backgroundColor:"#689f38",color:"white"}} className="card-header text-center">{aliment.ingredient}</h5>
+        <div className="card-body" style={{height:"25vh",overflow:"auto"}}>
             <div className="card-text">
                 <div className="row">
-                    <div className="col-lg titleCol">Quantité</div>
-                    <div className="col-lg">1 botte (250 g )</div>
+                    <div className="col-md titleCol">Quantité</div>
+                    <div className="col-md dataCol">{aliment.quantite}</div>
                 </div>
-                <div className="row">
-                    <div className="col-lg titleCol">Préparation</div>
-                    <div className="col-lg">Coupées en deux, sans tiges</div>
+                <div className="row cardRow">
+                    <div className="col-md titleCol">Préparation</div>
+                    <div className="col-md dataCol">{aliment.preparation}</div>
                 </div>
-                <div className="row">
-                    <div className="col-lg titleCol">Huile</div>
-                    <div className="col-lg">2 c.à.c</div>
+                <div className="row cardRow">
+                    <div className="col-md titleCol">Huile</div>
+                    <div className="col-md dataCol">{aliment.quantitehuile+' '+aliment.uniteHuile}</div>
                 </div>
-                <div className="row">
-                    <div className="col-lg titleCol">Température</div>
-                    <div className="col-lg">200°C</div>
+                <div className="row cardRow">
+                    <div className="col-md titleCol">Température</div>
+                    <div className="col-md dataCol">{aliment.temperature}°C</div>
                 </div>
-                <div className="row">
-                    <div className="col-lg titleCol">Temps</div>
-                    <div className="col-lg">8-10 min.</div>
+                <div className="row cardRow">
+                    <div className="col-md titleCol">Temps</div>
+                    <div className="col-md dataCol">{aliment.tempsMin}-{aliment.tempsMax} min.</div>
                 </div>
-                <div className="row">
-                    <div className="col-lg titleCol">Mélanger</div>
-                    <div className="col-lg">A mi-cuisson</div>
+                <div className="row cardRow">
+                    <div className="col-md titleCol">Mélanger</div>
+                    <div className="col-md dataCol">{aliment.preparation}</div>
                 </div>
             </div>
         </div>

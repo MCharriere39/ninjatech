@@ -1,0 +1,33 @@
+@media screen and (max-width: 1000px) {
+    .card {
+      height: 50vh; /* Modifier la hauteur pour les écrans de taille petit taille */
+    }
+  }
+  @media screen and (min-width: 1000px)and (max-width: 1700px) {
+    .card {
+      height: 45vh; /* Modifier la hauteur pour les grands de taille moyenne */
+    }
+  }
+
+  @media screen and (min-width: 1700px) {
+    .card {
+      height: 30vh; /* Modifier la hauteur pour les grands écrans */
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    .dataCol {
+      text-align: center; /* Modifier la hauteur pour les écrans de taille moyenne */
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    .titleCol {
+      text-align: center; /* Modifier la hauteur pour les écrans de taille moyenne */
+    }
+  }
+
+  .cardRow{
+    margin-top: 10px;
+  }
+  
+  /* Ajoutez d'autres Media Queries selon vos besoins pour les tailles d'écran spécifiques */
+  

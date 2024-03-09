@@ -1,6 +1,6 @@
 import { AirCrispAliment } from "./alimentType";
 
-const airCrispAliments : AirCrispAliment[]  = [
+export const airCrispAliments : AirCrispAliment[]  = [
     {
         ingredient: 'Asperges',
         quantite: 250,

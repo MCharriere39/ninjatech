@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Lobster } from "next/font/google";
 import "./style/globals.css";
 import NavBar from "./component/navBar";
 import Footer from "./component/footer";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './component/theme';
-import { Height } from "@mui/icons-material";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
-import "./style/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
