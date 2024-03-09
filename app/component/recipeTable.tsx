@@ -56,7 +56,6 @@ const columns: readonly Column[] = [
   { id: 'temperature', label: 'TEMPERATURE', minWidth: 170 },
   { id: 'tempsCuisson', label: 'TEMPS DE CUISSON', minWidth: 170 },
   { id: 'melanger', label: 'MELANGER/RETOURNER LE CONTENU DANS LE PANIER', minWidth: 170 },
-
 ];
 
 interface Data {
@@ -108,54 +107,66 @@ export default function StickyHeadTable(props:any) {
   };
 
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden', margin: 'auto', marginTop: '2vh', border: `solid ${props.color} 2px`,marginBottom:"40px" }}>
-      <TableContainer >
-        <Table stickyHeader aria-label="sticky table">
+
+    <div>
+      <div className='row'>
+        <div style={{}}>
+          <input type="text"/>
+        </div>
+        
+      </div>
+      
+      <Paper sx={{ width: '100%', overflow: 'hidden', margin: 'auto', marginTop: '2vh', border: `solid ${props.color} 2px`,marginBottom:"40px" }}>
+        <TableContainer >
+          <Table stickyHeader aria-label="sticky table">
           <TableHead>
-            <StyledTableRow>
-              {columns.map((column) => (
-                <StyledTableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </StyledTableCell>
-              ))}
-            </StyledTableRow>
           </TableHead>
-          <TableBody>
-            {rows
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
-                return (
-                  <StyledTableRow hover role="checkbox" tabIndex={-1} key={row.ingredient}>
-                    {columns.map((column) => {
-                      const value = row[column.id];
-                      return (
-                        <StyledTableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === 'number'
-                            ? column.format(value)
-                            : value}
-                        </StyledTableCell>
-                      );
-                    })}
-                  </StyledTableRow>
-                );
-              })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <TablePagination
-        labelRowsPerPage="Lignes par page"
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
-    </Paper>
+            <TableHead>
+              <StyledTableRow>
+                {columns.map((column) => (
+                  <StyledTableCell
+                    key={column.id}
+                    align={column.align}
+                    style={{ minWidth: column.minWidth }}
+                  >
+                    {column.label}
+                  </StyledTableCell>
+                ))}
+              </StyledTableRow>
+            </TableHead>
+            <TableBody>
+              {rows
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row) => {
+                  return (
+                    <StyledTableRow hover role="checkbox" tabIndex={-1} key={row.ingredient}>
+                      {columns.map((column) => {
+                        const value = row[column.id];
+                        return (
+                          <StyledTableCell key={column.id} align={column.align}>
+                            {column.format && typeof value === 'number'
+                              ? column.format(value)
+                              : value}
+                          </StyledTableCell>
+                        );
+                      })}
+                    </StyledTableRow>
+                  );
+                })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          labelRowsPerPage="Lignes par page"
+          rowsPerPageOptions={[10, 25, 100]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      </Paper>
+    </div>
   );
 }
