@@ -28,6 +28,16 @@
   .cardRow{
     margin-top: 10px;
   }
+  .airCrispCardBody{
+    border: solid #689f38 4px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-top: none;
+  }
+  .airCrispCard{
+    border-radius: 12px;
+    max-width: 500px;
+  }
   
   /* Ajoutez d'autres Media Queries selon vos besoins pour les tailles d'écran spécifiques */
   
