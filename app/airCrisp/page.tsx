@@ -4,6 +4,7 @@ import { airCrispAliments } from "../data/airCrispData";
 import { AirCrispAliment } from "../data/alimentType";
 import { ChangeEvent, useState,useEffect  } from 'react';
 import "../style/globals.css";
+import Link from "next/link";
 export default function Page() {
 
   
@@ -29,9 +30,6 @@ export default function Page() {
     setRows(populateRows());
   },[recherche])
 
-  
-
-
 
   return (
     <main>
@@ -48,7 +46,10 @@ export default function Page() {
           <div key={index} className="row">
             {row.map((aliment : AirCrispAliment, subIndex:any) => (
               <div key={subIndex} className="col-sm">
-                <AirCrispCard aliment={aliment} />
+                <Link style={{textDecoration:"none"}} href={`/airCrisp/${aliment.ingredient}`}>
+                  <AirCrispCard aliment={aliment} />
+                </Link>
+                
               </div>
             ))}
           </div>

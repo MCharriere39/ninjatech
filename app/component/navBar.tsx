@@ -78,7 +78,7 @@ export default function SearchAppBar() {
           >
            <Link style={{color:"white",textDecoration:"none"}} href="/"><span className={lobster.className}> La Ninjatech</span></Link> 
           </Typography>
-          <Search>
+          {/*<Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -86,7 +86,7 @@ export default function SearchAppBar() {
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
-          </Search >
+        </Search >*/}
         </Toolbar>
       </AppBar>
     </Box>

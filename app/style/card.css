@@ -11,7 +11,7 @@
 
   @media screen and (min-width: 1700px) {
     .card {
-      height: 30vh; /* Modifier la hauteur pour les grands écrans */
+      height: 35vh; /* Modifier la hauteur pour les grands écrans */
     }
   }
   @media screen and (max-width: 1000px) {
@@ -33,11 +33,14 @@
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
     border-top: none;
+
   }
   .airCrispCard{
     border-radius: 12px;
     max-width: 500px;
   }
-  
-  /* Ajoutez d'autres Media Queries selon vos besoins pour les tailles d'écran spécifiques */
-  
+  .airCrispCard:hover{
+    cursor: pointer; /* Curseur main au survol */
+    box-shadow: 0 0 10px rgba(4, 87, 8, 0.5); /* Ajout d'une ombre d'enfocement au survol */
+
+  }
