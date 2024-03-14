@@ -33,7 +33,7 @@ export default function Page() {
 
   return (
     <main>
-      <div  style={{ width:"70%",margin:"auto",marginTop: "40px", }}>
+      <div className="container-md ninjaContainer"  style={{margin:"auto", }}>
         <h2 style={{ color: "#689f38" }}>Air Crisp</h2>
         <h6> Pour le panier Cook & Crisp</h6>
         <div className="row">
