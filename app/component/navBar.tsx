@@ -74,7 +74,7 @@ export default function SearchAppBar() {
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: {xs:'none', sm: 'block' } }}
+            sx={{ flexGrow: 1 }}
           >
            <Link style={{color:"white",textDecoration:"none"}} href="/"><span className={lobster.className}> La Ninjatech</span></Link> 
           </Typography>

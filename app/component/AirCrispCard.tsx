@@ -14,16 +14,17 @@ export default function airCrispCard({aliment} : AirCrispCardProps) {
             <div className="card-text">
                 <div className="row">
                     <div className="col-md titleCol">Quantité</div>
-                    <div className="col-md dataCol">{aliment.quantite}</div>
+                    <div className="col-md dataCol">{aliment.quantite}g</div>
                 </div>
                 <div className="row cardRow">
                     <div className="col-md titleCol">Préparation</div>
                     <div className="col-md dataCol">{aliment.preparation}</div>
                 </div>
-                <div className="row cardRow">
+                {aliment.quantitehuile >0 ? <div className="row cardRow">
                     <div className="col-md titleCol">Huile</div>
                     <div className="col-md dataCol">{aliment.quantitehuile+' '+aliment.uniteHuile}</div>
-                </div>
+                </div> : ''}
+                
                 <div className="row cardRow">
                     <div className="col-md titleCol">Température</div>
                     <div className="col-md dataCol">{aliment.temperature}°C</div>
@@ -32,10 +33,13 @@ export default function airCrispCard({aliment} : AirCrispCardProps) {
                     <div className="col-md titleCol">Temps</div>
                     <div className="col-md dataCol">{aliment.tempsMin}-{aliment.tempsMax} min.</div>
                 </div>
-                <div className="row cardRow">
+                {aliment?.melanger ? <div className="row cardRow">
                     <div className="col-md titleCol">Mélanger</div>
-                    <div className="col-md dataCol">{aliment.preparation}</div>
-                </div>
+                    <div className="col-md dataCol">{aliment?.melanger}</div>
+                </div> : '' }
+                    
+                
+                
             </div>
         </div>
       </div>
