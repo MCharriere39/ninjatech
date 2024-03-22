@@ -2,32 +2,44 @@
 import { usePathname } from 'next/navigation';
 import "../../style/globals.css";
 import { airCrispAliments } from "../../data/airCrispData";
-import { AirCrispAliment } from "../../data/alimentType";
 import { useState } from 'react';
 
 
 export default function recette() {
   const ingredient = decodeURIComponent(usePathname().split('/')[usePathname().split('/').length - 1]);
-  const [value, setValue] = useState(0);
+  const [aliment, setAliment] = useState(getAliment());
+  const [quantiteAliment, setquantiteAliment] = useState(aliment?.quantite || 0);
+  const [multiplicateur, setMultiplicateur] = useState(majMultiplicateur(aliment?.quantite || 0));
 
+
+  function majMultiplicateur(nouvelleQuantite : number){
+    return nouvelleQuantite/aliment!.quantite ;
+  }
   const handleIncrement = () => {
-    setValue(value + 1);
+    setquantiteAliment(quantiteAliment + 1);
+    setMultiplicateur(majMultiplicateur(quantiteAliment + 1));
   };
 
   const handleDecrement = () => {
-    if (value > 0) {
-      setValue(value - 1);
+    if (quantiteAliment > 0) {
+      setquantiteAliment(quantiteAliment - 1);
+      setMultiplicateur(majMultiplicateur(quantiteAliment - 1));
     }
   };
 
   const handleChange = (event: any) => {
     const newValue = parseInt(event.target.value);
     if (!isNaN(newValue)) {
-      setValue(newValue);
+      console.log(newValue);
+      setquantiteAliment(newValue);
+      setMultiplicateur(majMultiplicateur(newValue));
+    }else{
+      setquantiteAliment(0);
+      setMultiplicateur(majMultiplicateur(0));
     }
   };
 
-  const [aliment, setAliment] = useState(getAliment());
+
 
   function getAliment() {
     for (let i = 0; i < airCrispAliments.length; i++) {
@@ -54,10 +66,10 @@ export default function recette() {
           </div>
           <div className='col dataCol'>
             <div style={{ position: 'relative', display: 'inline-block' }}>
-              <button onClick={handleDecrement} style={buttonStyle}>-</button>
+              <button onClick={handleDecrement}  style={buttonStyle}>-</button>
               <input
-                type="number"
-                value={value}
+                type="tel" pattern="[0-9]*"
+                value={quantiteAliment}
                 onChange={handleChange}
                 style={{
                   padding: '10px',
@@ -88,7 +100,7 @@ export default function recette() {
             Huile
           </div>
           <div className='col dataCol'>
-            {aliment?.quantitehuile + ' ' + aliment?.uniteHuile}
+            {Math.round((aliment?.quantitehuile)*multiplicateur) + ' ' + aliment?.uniteHuile}
           </div>
         </div> : ''}
 
