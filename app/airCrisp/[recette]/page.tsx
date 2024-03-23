@@ -3,6 +3,7 @@ import { usePathname } from 'next/navigation';
 import "../../style/globals.css";
 import { airCrispAliments } from "../../data/airCrispData";
 import { useState } from 'react';
+import Link from 'next/link';
 
 
 export default function recette() {
@@ -39,6 +40,11 @@ export default function recette() {
     }
   };
 
+  function reinitialiserQuantite(){
+    setquantiteAliment(aliment?.quantite || 0 );
+    setMultiplicateur(1);
+  }
+
 
 
   function getAliment() {
@@ -59,12 +65,17 @@ export default function recette() {
   return (
     <div className='mainClass'>
       <div className='container-md ninjaContainer'>
+            <Link style={{textDecoration:"none"}} href={`/airCrisp`}>
+              <button className='btn btn-outline-success btn-md mt-2'
+              ><i className="bi bi-arrow-left"> </i>Retour</button>
+            </Link>
         <h2 className='mb-5' style={{ textAlign: "center", color: "#689f38" }}>{aliment?.ingredient}</h2>
         <div className='row alimentRow'>
           <div className='col titleCol'>
             Quantité
           </div>
           <div className='col dataCol'>
+            
             <div style={{ position: 'relative', display: 'inline-block' }}>
               <button onClick={handleDecrement}  style={buttonStyle}>-</button>
               <input
@@ -84,6 +95,10 @@ export default function recette() {
               <div style={{ position: 'absolute', right: '40px', top: '50%', transform: 'translateY(-50%)', fontSize: '16px' }}>g</div>
               <button onClick={handleIncrement} style={buttonStyle}>+</button>
             </div>
+            {quantiteAliment != aliment?.quantite ? <button className='btn btn-outline-secondary btn-sm mt-2'
+            onClick={reinitialiserQuantite}
+            >Réinitialiser</button> : '' }
+            
             
           </div>
         </div>
