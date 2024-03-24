@@ -14,15 +14,21 @@ export default function Page() {
   function populateRows(){
     const filteredAliments = Array();
     for (let i = 0; i < airCrispAliments.length; i ++) {
-      if(airCrispAliments[i].ingredient.toLocaleLowerCase().startsWith(recherche.toLocaleLowerCase()) || recherche == ""){
+      if(airCrispAliments[i].ingredient.toLocaleLowerCase().includes(recherche.toLocaleLowerCase()) || recherche == ""){
         filteredAliments.push(airCrispAliments[i]);
       }
     }
     const tempRows = Array();
     for (let i = 0; i < filteredAliments.length; i += 4) {
       const row = filteredAliments.slice(i, i + 4);
+      if(row.length <4){
+        for(let b = 0;b < 4-row.length+1; b++){
+          row.push({});
+        }
+      }
       tempRows.push(row);
     }
+    console.log(tempRows);
     return tempRows;
   }
 
@@ -46,9 +52,10 @@ export default function Page() {
           <div key={index} className="row">
             {row.map((aliment : AirCrispAliment, subIndex:any) => (
               <div key={subIndex} className="col-sm">
-                <Link style={{textDecoration:"none"}} href={`/airCrisp/${aliment.ingredient}`}>
+                {aliment.ingredient ? <Link style={{textDecoration:"none"}} href={`/airCrisp/${aliment.ingredient}`}>
                   <AirCrispCard aliment={aliment} />
-                </Link>
+                </Link> : ''}
+                
                 
               </div>
             ))}
