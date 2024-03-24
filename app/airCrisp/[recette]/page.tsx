@@ -13,8 +13,8 @@ export default function recette() {
   const [multiplicateur, setMultiplicateur] = useState(majMultiplicateur(aliment?.quantite || 0));
 
 
-  function majMultiplicateur(nouvelleQuantite : number){
-    return nouvelleQuantite/aliment!.quantite ;
+  function majMultiplicateur(nouvelleQuantite: number) {
+    return nouvelleQuantite / aliment!.quantite;
   }
   const handleIncrement = () => {
     setquantiteAliment(quantiteAliment + 1);
@@ -34,14 +34,14 @@ export default function recette() {
       console.log(newValue);
       setquantiteAliment(newValue);
       setMultiplicateur(majMultiplicateur(newValue));
-    }else{
+    } else {
       setquantiteAliment(0);
       setMultiplicateur(majMultiplicateur(0));
     }
   };
 
-  function reinitialiserQuantite(){
-    setquantiteAliment(aliment?.quantite || 0 );
+  function reinitialiserQuantite() {
+    setquantiteAliment(aliment?.quantite || 0);
     setMultiplicateur(1);
   }
 
@@ -65,85 +65,85 @@ export default function recette() {
   return (
     <div className='mainClass'>
       <div className='container-md ninjaContainer'>
-            <Link style={{textDecoration:"none"}} href={`/airCrisp`}>
-              <button className='btn btn-outline-success btn-md mt-2'
-              ><i className="bi bi-arrow-left"> </i>Retour</button>
-            </Link>
-        <h2 className='mb-5' style={{ textAlign: "center", color: "#689f38" }}>{aliment?.ingredient}</h2>
-        <div className='row alimentRow'>
-          <div className='col titleCol'>
-            Quantité
-          </div>
-          <div className='col dataCol'>
-            
-            <div style={{ position: 'relative', display: 'inline-block' }}>
-              <button onClick={handleDecrement}  style={buttonStyle}>-</button>
-              <input
-                type="tel" pattern="[0-9]*"
-                value={quantiteAliment}
-                onChange={handleChange}
-                style={{
-                  padding: '10px',
-                  borderRadius: '5px',
-                  border: '1px solid #ccc',
-                  fontSize: '16px',
-                  width: '50%',
-                  textAlign: 'right',
-                  paddingRight: '20px',
-                }}
-              />
-              <div style={{ position: 'absolute', right: '40px', top: '50%', transform: 'translateY(-50%)', fontSize: '16px' }}>g</div>
-              <button onClick={handleIncrement} style={buttonStyle}>+</button>
+        <Link style={{ textDecoration: "none" }} href={`/airCrisp`}>
+          <button className='btn btn-outline-success btn-md'
+          ><i className="bi bi-arrow-left"> </i>Retour</button>
+        </Link>
+        <h2 className='mb-5 mt-5' style={{ textAlign: "center", color: "#689f38" }}>{aliment?.ingredient}</h2>
+        <div style={{ maxWidth: "600px", margin: "auto" }}>
+          <div className='row alimentRow'>
+            <div className='col-md titleCol'>
+              Quantité
             </div>
-            {quantiteAliment != aliment?.quantite ? <button className='btn btn-outline-secondary btn-sm mt-2'
-            onClick={reinitialiserQuantite}
-            >Réinitialiser</button> : '' }
-            
-            
-          </div>
-        </div>
-        <div className='row alimentRow'>
-          <div className='col titleCol'>
-            Préparation
-          </div>
-          <div className='col dataCol'>
-            {aliment?.preparation}
-          </div>
-        </div>
-        {aliment?.quantitehuile && aliment?.quantitehuile > 0 ? <div className='row alimentRow'>
-          <div className='col titleCol'>
-            Huile
-          </div>
-          <div className='col dataCol'>
-            {Math.round((aliment?.quantitehuile)*multiplicateur) + ' ' + aliment?.uniteHuile}
-          </div>
-        </div> : ''}
+            <div className='col-md dataCol'>
+              <div style={{ position: 'relative', display: 'inline-block' }}>
+                <button onClick={handleDecrement} style={buttonStyle}>-</button>
+                <input
+                  type="tel" pattern="[0-9]*"
+                  value={quantiteAliment}
+                  onChange={handleChange}
+                  style={{
+                    padding: '10px',
+                    borderRadius: '5px',
+                    border: '1px solid #ccc',
+                    fontSize: '16px',
+                    width: '150px',
+                    textAlign: 'right',
+                    paddingRight: '20px',
+                  }}
+                />
+                <div style={{ position: 'absolute', right: '40px', top: '50%', transform: 'translateY(-50%)', fontSize: '16px' }}> g</div>
+                <button onClick={handleIncrement} style={buttonStyle}>+</button>
+              </div>
+              {quantiteAliment != aliment?.quantite ? <button className='btn btn-outline-secondary btn-sm mt-2'
+                onClick={reinitialiserQuantite}
+              >Réinitialiser</button> : ''}
 
-        <div className='row alimentRow'>
-          <div className='col titleCol'>
-            Température
-          </div>
-          <div className='col dataCol'>
-            {aliment?.temperature}°C
-          </div>
-        </div>
-        <div className='row alimentRow'>
-          <div className='col titleCol'>
-            Temps
-          </div>
-          <div className='col dataCol'>
-            {aliment?.tempsMin}-{aliment?.tempsMax} min.
-          </div>
-        </div>
-        {aliment?.melanger ? <div className='row alimentRow'>
-          <div className='col titleCol'>
-            Mélanger
-          </div>
-          <div className='col dataCol'>
-            {aliment?.melanger}
-          </div>
-        </div> : ''}
 
+            </div>
+            <div className='row alimentRow'>
+              <div className='col-md titleCol'>
+                Préparation
+              </div>
+              <div className='col-md dataCol'>
+                {aliment?.preparation}
+              </div>
+            </div>
+            {aliment?.quantitehuile && aliment?.quantitehuile > 0 ? <div className='row alimentRow'>
+              <div className='col-md titleCol'>
+                Huile
+              </div>
+              <div className='col-md dataCol'>
+                {Math.round((aliment?.quantitehuile) * multiplicateur) + ' ' + aliment?.uniteHuile}
+              </div>
+            </div> : ''}
+
+            <div className='row alimentRow'>
+              <div className='col-md titleCol'>
+                Température
+              </div>
+              <div className='col-md dataCol'>
+                {aliment?.temperature}°C
+              </div>
+            </div>
+            <div className='row alimentRow'>
+              <div className='col-md titleCol'>
+                Temps
+              </div>
+              <div className='col-md dataCol'>
+                {aliment?.tempsMin}-{aliment?.tempsMax} min.
+              </div>
+            </div>
+            {aliment?.melanger ? <div className='row alimentRow'>
+              <div className='col-md titleCol'>
+                Mélanger
+              </div>
+              <div className='col-md dataCol'>
+                {aliment?.melanger}
+              </div>
+            </div> : ''}
+          </div>
+        </div>
       </div>
     </div>
   );

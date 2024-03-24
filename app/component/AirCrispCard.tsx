@@ -8,7 +8,7 @@ interface AirCrispCardProps {
 export default function airCrispCard({aliment} : AirCrispCardProps) {
     return (
 
-        <div className="card airCrispCard" style={{margin:"5px", width:"290px"}}>
+        <div className="card airCrispCard" style={{margin:"5px", width:"260px"}}>
         <h5 style={{backgroundColor:"#689f38",color:"white"}} className="card-header text-center">{aliment.ingredient}</h5>
         <div className="card-body airCrispCardBody" style={{height:"25vh",overflow:"auto"}}>
             <div className="card-text">

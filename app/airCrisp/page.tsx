@@ -19,8 +19,8 @@ export default function Page() {
       }
     }
     const tempRows = Array();
-    for (let i = 0; i < filteredAliments.length; i += 2) {
-      const row = filteredAliments.slice(i, i + 2);
+    for (let i = 0; i < filteredAliments.length; i += 4) {
+      const row = filteredAliments.slice(i, i + 4);
       tempRows.push(row);
     }
     return tempRows;
