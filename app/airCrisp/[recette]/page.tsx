@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 
 export default function recette() {
-  const ingredient = decodeURIComponent(usePathname().split('/')[usePathname().split('/').length - 1]);
+  const id = decodeURIComponent(usePathname().split('/')[usePathname().split('/').length - 1]);
   const [aliment, setAliment] = useState(getAliment());
   const [quantiteAliment, setquantiteAliment] = useState(aliment?.quantite || 0);
   const [multiplicateur, setMultiplicateur] = useState(majMultiplicateur(aliment?.quantite || 0));
@@ -49,7 +49,7 @@ export default function recette() {
 
   function getAliment() {
     for (let i = 0; i < airCrispAliments.length; i++) {
-      if (airCrispAliments[i].ingredient == ingredient) {
+      if (airCrispAliments[i].id == parseInt(id)) {
         return airCrispAliments[i];
       }
     }
@@ -72,10 +72,10 @@ export default function recette() {
         <h2 className='mb-5 mt-5' style={{ textAlign: "center", color: "#689f38" }}>{aliment?.ingredient}</h2>
         <div style={{ maxWidth: "600px", margin: "auto" }}>
           <div className='row alimentRow'>
-            <div className='col-md titleCol'>
+            <div className='col-lg titleCol'>
               Quantité
             </div>
-            <div className='col-md dataCol'>
+            <div className='col-lg dataCol'>
               <div style={{ position: 'relative', display: 'inline-block' }}>
                 <button onClick={handleDecrement} style={buttonStyle}>-</button>
                 <input
@@ -87,12 +87,12 @@ export default function recette() {
                     borderRadius: '5px',
                     border: '1px solid #ccc',
                     fontSize: '16px',
-                    width: '150px',
-                    textAlign: 'right',
+                    width: '200px',
+                    textAlign: 'left',
                     paddingRight: '20px',
                   }}
                 />
-                <div style={{ position: 'absolute', right: '40px', top: '50%', transform: 'translateY(-50%)', fontSize: '16px' }}> g</div>
+                <div style={{ position: 'absolute', right: '40px', top: '50%', transform: 'translateY(-50%)', fontSize: '16px' }}>{quantiteAliment > 1 &&  aliment?.uniteQuantite != 'g' &&  aliment?.uniteQuantite != 'kg' &&  aliment?.uniteQuantite != 'l'? aliment?.uniteQuantite+'s' : aliment?.uniteQuantite} { aliment?.precisionUnite?  '('+ aliment.precisionUnite+')' : ''}</div>
                 <button onClick={handleIncrement} style={buttonStyle}>+</button>
               </div>
               {quantiteAliment != aliment?.quantite ? <button className='btn btn-outline-secondary btn-sm mt-2'
@@ -102,43 +102,46 @@ export default function recette() {
 
             </div>
             <div className='row alimentRow'>
-              <div className='col-md titleCol'>
+              <div className='col-lg titleCol'>
                 Préparation
               </div>
-              <div className='col-md dataCol'>
+              <div className='col-lg dataCol'>
                 {aliment?.preparation}
               </div>
             </div>
             {aliment?.quantitehuile && aliment?.quantitehuile > 0 ? <div className='row alimentRow'>
-              <div className='col-md titleCol'>
+              <div className='col-lg titleCol'>
                 Huile
               </div>
-              <div className='col-md dataCol'>
+              <div className='col-lg dataCol'>
                 {Math.round((aliment?.quantitehuile) * multiplicateur) + ' ' + aliment?.uniteHuile}
               </div>
             </div> : ''}
 
             <div className='row alimentRow'>
-              <div className='col-md titleCol'>
+              <div className='col-lg titleCol'>
                 Température
               </div>
-              <div className='col-md dataCol'>
+              <div className='col-lg dataCol'>
                 {aliment?.temperature}°C
               </div>
             </div>
             <div className='row alimentRow'>
-              <div className='col-md titleCol'>
+              <div className='col-lg titleCol'>
                 Temps
               </div>
-              <div className='col-md dataCol'>
-                {aliment?.tempsMin}-{aliment?.tempsMax} min.
+              <div className='col-lg dataCol'>
+                {aliment?.tempsMin}-{aliment?.tempsMax} min.<br/>
+               {multiplicateur >= 1.5 && multiplicateur < 2  ? <span className="text-warning">(Augmenter légèrement le temp de cuisson)</span> : ''} 
+               {multiplicateur >= 2 && multiplicateur < 3  ? <span className="text-warning">(Penser à augmenter le temp de cuisson)</span> : ''} 
+               {multiplicateur >= 3  ? <span className="text-warning">(Augmenter significativement le temp de cuisson)</span> : ''}
               </div>
             </div>
             {aliment?.melanger ? <div className='row alimentRow'>
-              <div className='col-md titleCol'>
+              <div className='col-lg titleCol'>
                 Mélanger
               </div>
-              <div className='col-md dataCol'>
+              <div className='col-lg dataCol'>
                 {aliment?.melanger}
               </div>
             </div> : ''}

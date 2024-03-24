@@ -1,6 +1,9 @@
 export type AirCrispAliment = {
+    id : number;
     ingredient: string;
     quantite: number;
+    uniteQuantite : string;
+    precisionUnite : string;
     preparation: string;
     quantitehuile: number;
     uniteHuile: string

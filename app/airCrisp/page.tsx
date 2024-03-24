@@ -52,7 +52,7 @@ export default function Page() {
           <div key={index} className="row">
             {row.map((aliment : AirCrispAliment, subIndex:any) => (
               <div key={subIndex} className="col-sm">
-                {aliment.ingredient ? <Link style={{textDecoration:"none"}} href={`/airCrisp/${aliment.ingredient}`}>
+                {aliment.ingredient ? <Link style={{textDecoration:"none"}} href={`/airCrisp/${aliment.id}`}>
                   <AirCrispCard aliment={aliment} />
                 </Link> : ''}
                 
