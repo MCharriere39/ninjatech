@@ -31,7 +31,7 @@ export default function airCrispCard({aliment} : AirCrispCardProps) {
                 </div>
                 <div className="row cardRow">
                     <div className="col-md titleCol">Temps</div>
-                    <div className="col-md dataCol">{aliment.tempsMin}-{aliment.tempsMax} min.</div>
+                    <div className="col-md dataCol">{aliment?.tempsMin}{aliment?.tempsMax ? '-'+ aliment.tempsMax : ''} min</div>
                 </div>
                 {aliment?.melanger ? <div className="row cardRow">
                     <div className="col-md titleCol">Mélanger</div>

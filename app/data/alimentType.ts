@@ -12,3 +12,19 @@ export type AirCrispAliment = {
     tempsMax: number;
     melanger: string;
   };
+
+  export type pressureCookingAliment = {
+    id : number;
+    ingredient: string;
+    quantite: number;
+    uniteQuantite : string;
+    precisionUnite : string;
+    preparation: string;
+    quantiteEau: number;
+    uniteEau: string
+    accessoire : string,
+    pression: string;
+    tempsMin: number;
+    tempsMax: number;
+    decompression: string;
+  }

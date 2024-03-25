@@ -39,6 +39,17 @@
     border-radius: 12px;
     max-width: 500px;
   }
+  .pressureCookingCardBody{
+    border: solid #0072BC 4px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-top: none;
+
+  }
+  .pressureCookingCard{
+    border-radius: 12px;
+    max-width: 500px;
+  }
   .airCrispCard:hover{
     cursor: pointer; /* Curseur main au survol */
     box-shadow: 0 0 10px rgba(4, 87, 8, 0.5); /* Ajout d'une ombre d'enfocement au survol */

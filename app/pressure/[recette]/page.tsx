@@ -1,7 +1,7 @@
 'use client';
 import { usePathname } from 'next/navigation';
 import "../../style/globals.css";
-import { airCrispAliments } from "../../data/airCrispData";
+import { pressureCookingAliments } from "../../data/pressureCookingData";
 import { useState } from 'react';
 import Link from 'next/link';
 
@@ -48,9 +48,9 @@ export default function recette() {
 
 
   function getAliment() {
-    for (let i = 0; i < airCrispAliments.length; i++) {
-      if (airCrispAliments[i].id == parseInt(id)) {
-        return airCrispAliments[i];
+    for (let i = 0; i < pressureCookingAliments.length; i++) {
+      if (pressureCookingAliments[i].id == parseInt(id)) {
+        return pressureCookingAliments[i];
       }
     }
   }
@@ -65,11 +65,11 @@ export default function recette() {
   return (
     <div className='mainClass'>
       <div className='container-md ninjaContainer'>
-        <Link style={{ textDecoration: "none" }} href={`/airCrisp`}>
-          <button className='btn btn-outline-success btn-md'
+        <Link style={{ textDecoration: "none" }} href={`/pressure`}>
+          <button className='btn btn-outline-primary btn-md'
           ><i className="bi bi-arrow-left"> </i>Retour</button>
         </Link>
-        <h2 className='mb-5 mt-5' style={{ textAlign: "center", color: "#689f38" }}>{aliment?.ingredient}</h2>
+        <h2 className='mb-5 mt-5' style={{ textAlign: "center", color: "#0072BC" }}>{aliment?.ingredient}</h2>
         <div style={{ maxWidth: "600px", margin: "auto" }}>
           <div className='row alimentRow'>
             <div className='col-lg titleCol'>
@@ -109,21 +109,28 @@ export default function recette() {
                 {aliment?.preparation}
               </div>
             </div>
-            {aliment?.quantitehuile && aliment?.quantitehuile > 0 ? <div className='row alimentRow'>
+            {aliment?.quantiteEau && aliment?.quantiteEau > 0 ? <div className='row alimentRow'>
               <div className='col-lg titleCol'>
-                Huile
+                Eau
               </div>
               <div className='col-lg dataCol'>
-                {Math.round((aliment?.quantitehuile) * multiplicateur) + ' ' + aliment?.uniteHuile}
+                {Math.round((aliment?.quantiteEau) * multiplicateur) + ' ' + aliment?.uniteEau}
               </div>
             </div> : ''}
-
-            <div className='row alimentRow'>
+            {aliment?.accessoire  ? <div className='row alimentRow'>
               <div className='col-lg titleCol'>
-                Température
+                Accessoire
               </div>
               <div className='col-lg dataCol'>
-                {aliment?.temperature}°C
+                {aliment.accessoire}
+              </div>
+            </div> : ''}
+            <div className='row alimentRow'>
+              <div className='col-lg titleCol'>
+                Pression
+              </div>
+              <div className='col-lg dataCol'>
+                {aliment?.pression}
               </div>
             </div>
             <div className='row alimentRow'>
@@ -137,14 +144,14 @@ export default function recette() {
                {multiplicateur >= 3  ? <span className="text-warning">(Augmenter significativement le temp de cuisson)</span> : ''}
               </div>
             </div>
-            {aliment?.melanger ? <div className='row alimentRow'>
+            <div className='row alimentRow'>
               <div className='col-lg titleCol'>
-                Mélanger
+                Décompression
               </div>
               <div className='col-lg dataCol'>
-                {aliment?.melanger}
+                {aliment?.decompression}
               </div>
-            </div> : ''}
+            </div> 
           </div>
         </div>
       </div>
