@@ -16,10 +16,11 @@ export default function pressureCookingCard({aliment} : PressureCookingCardProps
                     <div className="col-md titleCol">Quantité</div>
                     <div className="col-md dataCol">{aliment.quantite} {aliment.quantite > 1 &&  aliment?.uniteQuantite != 'g' &&  aliment?.uniteQuantite != 'kg' &&  aliment?.uniteQuantite != 'l'? aliment?.uniteQuantite+'s' : aliment?.uniteQuantite} <br/> { aliment.precisionUnite?  '('+ aliment.precisionUnite+')' : ''}</div>
                 </div>
-                <div className="row cardRow">
+                {aliment.preparation ? <div className="row cardRow">
                     <div className="col-md titleCol">Préparation</div>
                     <div className="col-md dataCol">{aliment.preparation}</div>
-                </div>
+                </div> : ''}
+                
                 {aliment.quantiteEau >0 ? <div className="row cardRow">
                     <div className="col-md titleCol">Eau</div>
                     <div className="col-md dataCol">{aliment.quantiteEau+' '+aliment.uniteEau}</div>

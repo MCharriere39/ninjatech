@@ -28,7 +28,6 @@ export default function Page() {
       }
       tempRows.push(row);
     }
-    console.log(tempRows);
     return tempRows;
   }
 

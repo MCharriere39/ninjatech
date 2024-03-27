@@ -17,21 +17,43 @@ export default function recette() {
     return nouvelleQuantite / aliment!.quantite;
   }
   const handleIncrement = () => {
-    setquantiteAliment(quantiteAliment + 1);
-    setMultiplicateur(majMultiplicateur(quantiteAliment + 1));
+    if(Number.isInteger(quantiteAliment)){
+      if(aliment?.uniteQuantite == 'g' || aliment?.uniteQuantite == 'ml'){
+        setquantiteAliment(quantiteAliment + 50);
+        setMultiplicateur(majMultiplicateur(quantiteAliment + 50));
+      }else{
+        setquantiteAliment(quantiteAliment + 1);
+        setMultiplicateur(majMultiplicateur(quantiteAliment + 1));
+      }
+      
+    }else{
+      setquantiteAliment(quantiteAliment + 0.1);
+      setMultiplicateur(majMultiplicateur(quantiteAliment + 0.1));
+    } 
   };
 
   const handleDecrement = () => {
-    if (quantiteAliment > 0) {
-      setquantiteAliment(quantiteAliment - 1);
-      setMultiplicateur(majMultiplicateur(quantiteAliment - 1));
+    if(quantiteAliment != 0){
+      if(Number.isInteger(quantiteAliment)){
+        if(aliment?.uniteQuantite == 'g' || aliment?.uniteQuantite == 'ml'){
+          setquantiteAliment(quantiteAliment - 50);
+          setMultiplicateur(majMultiplicateur(quantiteAliment - 50));
+        }else{
+          setquantiteAliment(quantiteAliment - 1);
+          setMultiplicateur(majMultiplicateur(quantiteAliment - 1));
+        }
+        
+      }else{
+        setquantiteAliment(quantiteAliment - 0.1);
+        setMultiplicateur(majMultiplicateur(quantiteAliment - 0.1));
+      } 
     }
+    
   };
 
   const handleChange = (event: any) => {
-    const newValue = parseInt(event.target.value);
+    const newValue = parseFloat(event.target.value);
     if (!isNaN(newValue)) {
-      console.log(newValue);
       setquantiteAliment(newValue);
       setMultiplicateur(majMultiplicateur(newValue));
     } else {
@@ -45,7 +67,15 @@ export default function recette() {
     setMultiplicateur(1);
   }
 
-
+  const formatValue = (value: any) => {
+    if(!Number.isInteger(quantiteAliment)){
+      if (value === "") return ""; // Return empty string if value is empty
+      const floatValue = parseFloat(value); // Parse the value to float
+      return floatValue.toFixed(1); // Format the value to have 3 decimal places
+    }else{
+      return value;
+    }
+};
 
   function getAliment() {
     for (let i = 0; i < pressureCookingAliments.length; i++) {
@@ -79,19 +109,20 @@ export default function recette() {
               <div style={{ position: 'relative', display: 'inline-block' }}>
                 <button onClick={handleDecrement} style={buttonStyle}>-</button>
                 <input
-                  type="tel" pattern="[0-9]*"
-                  value={quantiteAliment}
+                  type="number"
+                  value={formatValue(quantiteAliment)}
                   onChange={handleChange}
                   style={{
-                    padding: '10px',
-                    borderRadius: '5px',
-                    border: '1px solid #ccc',
-                    fontSize: '16px',
-                    width: '200px',
-                    textAlign: 'left',
-                    paddingRight: '20px',
+                      padding: '10px',
+                      borderRadius: '5px',
+                      border: '1px solid #ccc',
+                      fontSize: '16px',
+                      width: '200px',
+                      textAlign: 'left',
+                      paddingRight: '20px',
                   }}
                 />
+
                 <div style={{ position: 'absolute', right: '40px', top: '50%', transform: 'translateY(-50%)', fontSize: '16px' }}>{quantiteAliment > 1 &&  aliment?.uniteQuantite != 'g' &&  aliment?.uniteQuantite != 'kg' &&  aliment?.uniteQuantite != 'l'? aliment?.uniteQuantite+'s' : aliment?.uniteQuantite} { aliment?.precisionUnite?  '('+ aliment.precisionUnite+')' : ''}</div>
                 <button onClick={handleIncrement} style={buttonStyle}>+</button>
               </div>
@@ -101,14 +132,15 @@ export default function recette() {
 
 
             </div>
-            <div className='row alimentRow'>
+            {aliment?.preparation ? <div className='row alimentRow'>
               <div className='col-lg titleCol'>
                 Préparation
               </div>
               <div className='col-lg dataCol'>
                 {aliment?.preparation}
               </div>
-            </div>
+            </div> : ''}
+            
             {aliment?.quantiteEau && aliment?.quantiteEau > 0 ? <div className='row alimentRow'>
               <div className='col-lg titleCol'>
                 Eau
