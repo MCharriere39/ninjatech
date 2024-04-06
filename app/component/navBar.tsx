@@ -36,7 +36,7 @@ export default function SearchAppBar() {
             component="div"
             sx={{ flexGrow: 1 }}
           >
-           <Link style={{color:"white",textDecoration:"none"}} href="/"><span className={lobster.className}>La Ninjatech</span></Link> 
+           <Link style={{color:"white",textDecoration:"none"}} href="/"><span className={lobster.className}>La Ninjathèque</span></Link> 
           </Typography>
           {/*<Search>
             <SearchIconWrapper>

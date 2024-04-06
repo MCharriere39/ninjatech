@@ -24,7 +24,7 @@ export default function Home() {
         <div className="flex-column" >
           <div className="row">
             <div style={{textAlign:"center"}} className="col mt-3">
-              <h1 style={{fontWeight:'bold',fontSize:45}} className={lobster.className}> La Ninjatech</h1>
+              <h1 style={{fontWeight:'bold',fontSize:45}} className={lobster.className}> La Ninjathèque</h1>
               <h1 style={{fontWeight:'normale',fontSize:20, fontStyle:"italic"}}>Toutes les recettes pour votre multi-cuiseur préféré !</h1>
             </div>
           </div>
