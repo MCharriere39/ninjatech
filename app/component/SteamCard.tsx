@@ -9,7 +9,7 @@ export default function SteamCard({aliment} : SteamCardProps) {
     return (
 
         <div className="card steamCard" style={{margin:"5px", width:"260px"}}>
-        <h5 style={{backgroundColor:"#0093bc",color:"white"}} className="card-header text-center">{aliment.ingredient}</h5>
+        <h6 style={{backgroundColor:"#0093bc",color:"white"}} className="card-header text-center">{aliment.ingredient}</h6>
         <div className="card-body steamCardBody" style={{height:"25vh",overflow:"auto"}}>
             <div className="card-text">
                 <div className="row">

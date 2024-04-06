@@ -9,7 +9,7 @@ export default function TenderCrispCard({aliment} : TenderCrispCardProps) {
     return (
 
         <div className="card tenderCrispCard" style={{margin:"5px", width:"260px"}}>
-        <h5 style={{backgroundColor:"#E0A846",color:"white"}} className="card-header text-center">{aliment.ingredient}</h5>
+        <h6 style={{backgroundColor:"#E0A846",color:"white"}} className="card-header text-center">{aliment.ingredient}</h6>
         <div className="card-body tenderCrispCardBody" style={{height:"25vh",overflow:"auto"}}>
             <div className="card-text">
                 <div className="row">

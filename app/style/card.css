@@ -29,63 +29,67 @@
     margin-top: 10px;
   }
   .airCrispCardBody{
-    border: solid #689f38 4px;
+    border: solid #689f38 3px;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
     border-top: none;
 
   }
   .airCrispCard{
+    font-size: 12px;
     border-radius: 12px;
-    max-width: 500px;
+    max-width: 230px;
   }
   .pressureCookingCardBody{
-    border: solid #0072BC 4px;
+    border: solid #0072BC 3px;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
     border-top: none;
 
   }
   .pressureCookingCard{
+    font-size: 12px;
     border-radius: 12px;
-    max-width: 500px;
+    max-width: 230px;
   }
   .steamCardBody{
-    border: solid #0093bc 4px;
+    border: solid #0093bc 3px;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
     border-top: none;
 
   }
   .steamCard{
+    font-size: 12px;
     border-radius: 12px;
-    max-width: 500px;
+    max-width: 230px;
   }
   .tenderCrispCardBody{
-    border: solid #E0A846 4px;
+    border: solid #E0A846 3px;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
     border-top: none;
 
   }
   .tenderCrispCard{
+    font-size: 12px;
     border-radius: 12px;
-    max-width: 500px;
+    max-width: 230px;
   }
   .airCrispCard:hover{
     cursor: pointer; /* Curseur main au survol */
-    box-shadow: 0 0 10px rgba(4, 87, 8, 0.5); /* Ajout d'une ombre d'enfocement au survol */
+    box-shadow: 0 0 8px rgba(4, 87, 8, 0.5); /* Ajout d'une ombre d'enfocement au survol */
   }
   .steamCard:hover{
     cursor: pointer; /* Curseur main au survol */
-    box-shadow: 0 0 10px rgba(4, 70, 87, 0.5); /* Ajout d'une ombre d'enfocement au survol */
+    box-shadow: 0 0 8px rgba(4, 70, 87, 0.5); /* Ajout d'une ombre d'enfocement au survol */
   }
   .tenderCrispCard:hover{
     cursor: pointer; /* Curseur main au survol */
-    box-shadow: 0 0 10px rgba(100, 86, 5, 0.5); /* Ajout d'une ombre d'enfocement au survol */
+    box-shadow: 0 0 8px rgba(100, 86, 5, 0.5); /* Ajout d'une ombre d'enfocement au survol */
   }
   .pressureCookingCard:hover{
     cursor: pointer; /* Curseur main au survol */
-    box-shadow: 0 0 10px rgba(5, 45, 68, 0.5); /* Ajout d'une ombre d'enfocement au survol */
+    box-shadow: 0 0 8px rgba(5, 45, 68, 0.5); /* Ajout d'une ombre d'enfocement au survol */
   }
 
