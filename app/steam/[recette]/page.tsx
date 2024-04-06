@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { steamAliments } from '../../data/steamData';
 
 
-export default function recette() {
+export default function Recette() {
   const id = decodeURIComponent(usePathname().split('/')[usePathname().split('/').length - 1]);
   const [aliment, setAliment] = useState(getAliment());
   const [multiplicateur, setMultiplicateur] = useState(majMultiplicateur(aliment?.quantite || 0));

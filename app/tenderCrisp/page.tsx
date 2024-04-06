@@ -44,7 +44,7 @@ export default function Page() {
           ><i className="bi bi-arrow-left"> </i>Retour</button>
         </Link>
         <h2 style={{ color: "#E0A846" }}>TenderCrisp</h2>
-        <h6>Cuire rapidement et faire croustiller</h6>
+        <h6>Pour cuire rapidement et faire croustiller</h6>
         <div className="row">
           <div className="col-sm-7"></div>
           <div className="col-sm-5 mb-2">
