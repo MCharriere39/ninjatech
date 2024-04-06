@@ -29,6 +29,19 @@ export type AirCrispAliment = {
     decompression: string;
   }
 
+  export type steamAliment = {
+    id : number;
+    ingredient: string;
+    quantite: number;
+    uniteQuantite : string;
+    precisionUnite : string;
+    preparation: string;
+    quantiteEau: number;
+    uniteEau: string
+    tempsMin: number;
+    tempsMax: number;
+  }
+
   export type tenderCrispAliment = {
     id : number;
     ingredient: string;

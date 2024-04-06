@@ -50,6 +50,17 @@
     border-radius: 12px;
     max-width: 500px;
   }
+  .steamCardBody{
+    border: solid #0093bc 4px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-top: none;
+
+  }
+  .steamCard{
+    border-radius: 12px;
+    max-width: 500px;
+  }
   .tenderCrispCardBody{
     border: solid #E0A846 4px;
     border-bottom-right-radius: 12px;
