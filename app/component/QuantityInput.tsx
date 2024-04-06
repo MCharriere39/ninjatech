@@ -11,7 +11,7 @@ export default function quantityInput(props : {aliment :any, onInputChange : (ne
     function AddQuantiteAliment(v:number){
         setquantiteAliment(quantiteAliment + v);
         setMultiplicateur((quantiteAliment + v)/ aliment!.quantite);
-        handleInputChange(); 
+        handleInputChange((quantiteAliment + v)/ aliment!.quantite); 
     }
 
     const formatValue = (value: any) => {
@@ -54,12 +54,12 @@ export default function quantityInput(props : {aliment :any, onInputChange : (ne
       function reinitialiserQuantite() {
         setquantiteAliment(aliment?.quantite || 0);
         setMultiplicateur(1);
-        handleInputChange();
+        handleInputChange(1);
       }
 
-      function handleInputChange(){
+      function handleInputChange(multiplicateurModified : number){
         // Call the callback function with the new value
-        props.onInputChange(multiplicateur);
+        props.onInputChange(multiplicateurModified);
       }
 
       const buttonStyle = {

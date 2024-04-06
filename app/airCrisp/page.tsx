@@ -39,6 +39,10 @@ export default function Page() {
   return (
     <main className="mainClass">
       <div className="container-md ninjaContainer" >
+      <Link style={{ textDecoration: "none" }} href={`/`}>
+          <button style={{marginTop:"-50px"}} className='btn btn-outline-success btn-md '
+          ><i className="bi bi-arrow-left"> </i>Retour</button>
+        </Link>
         <h2 style={{ color: "#689f38" }}>Air Crisp</h2>
         <h6> Pour le panier Cook & Crisp</h6>
         <div className="row">

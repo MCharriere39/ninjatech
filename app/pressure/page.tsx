@@ -39,6 +39,10 @@ export default function Page() {
   return (
     <main className="mainClass">
       <div className="container-md ninjaContainer" >
+        <Link style={{ textDecoration: "none" }} href={`/`}>
+          <button style={{marginTop:"-50px"}} className='btn btn-outline-primary btn-md '
+          ><i className="bi bi-arrow-left"> </i>Retour</button>
+        </Link>
         <h2 style={{ color: "#0072BC" }}>Cuisson sous pression</h2>
         <h6>Avec le couvercle pression</h6>
         <div className="row">

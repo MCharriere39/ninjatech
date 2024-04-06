@@ -75,6 +75,17 @@
   .airCrispCard:hover{
     cursor: pointer; /* Curseur main au survol */
     box-shadow: 0 0 10px rgba(4, 87, 8, 0.5); /* Ajout d'une ombre d'enfocement au survol */
-
+  }
+  .steamCard:hover{
+    cursor: pointer; /* Curseur main au survol */
+    box-shadow: 0 0 10px rgba(4, 70, 87, 0.5); /* Ajout d'une ombre d'enfocement au survol */
+  }
+  .tenderCrispCard:hover{
+    cursor: pointer; /* Curseur main au survol */
+    box-shadow: 0 0 10px rgba(100, 86, 5, 0.5); /* Ajout d'une ombre d'enfocement au survol */
+  }
+  .pressureCookingCard:hover{
+    cursor: pointer; /* Curseur main au survol */
+    box-shadow: 0 0 10px rgba(5, 45, 68, 0.5); /* Ajout d'une ombre d'enfocement au survol */
   }
 
