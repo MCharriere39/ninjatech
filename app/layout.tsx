@@ -7,7 +7,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from './component/theme';
 import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
 import 'bootstrap-icons/font/bootstrap-icons.css';
-
+import { Analytics } from "@vercel/analytics/react"
 import "./style/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,6 +35,7 @@ export default function RootLayout({
               <Footer />
             </ThemeProvider>
         </AppRouterCacheProvider>
+        <Analytics />
       </body>
     </html>
   );
