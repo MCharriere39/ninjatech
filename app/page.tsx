@@ -1,7 +1,5 @@
-
-
 import Image from "next/image";
-
+import "./style/globals.css";
 import { Lobster } from "next/font/google";
 import Link from 'next/link';
 

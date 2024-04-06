@@ -1,5 +1,5 @@
 
-export default function test() {
+export default function Footer() {
     return (
       <footer className="bg-body-tertiary text-center">
             <div className="container p-4"></div>

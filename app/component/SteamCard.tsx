@@ -5,7 +5,7 @@ interface SteamCardProps {
     aliment: steamAliment;
   }
 
-export default function steamCard({aliment} : SteamCardProps) {
+export default function SteamCard({aliment} : SteamCardProps) {
     return (
 
         <div className="card steamCard" style={{margin:"5px", width:"260px"}}>

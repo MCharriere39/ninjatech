@@ -5,7 +5,7 @@ interface PressureCookingCardProps {
     aliment: pressureCookingAliment;
   }
 
-export default function pressureCookingCard({aliment} : PressureCookingCardProps) {
+export default function PressureCookingCard({aliment} : PressureCookingCardProps) {
     return (
 
         <div className="card pressureCookingCard" style={{margin:"5px", width:"260px"}}>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function quantityInput(props : {aliment :any, onInputChange : (newValue : number) => void}) {
+export default function QuantityInput(props : {aliment :any, onInputChange : (newValue : number) => void}) {
 
     const [aliment, setAliment] = useState(props.aliment);
     const [quantiteAliment, setquantiteAliment] = useState(props.aliment.quantite || 0);

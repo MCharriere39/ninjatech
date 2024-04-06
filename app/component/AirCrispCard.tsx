@@ -5,7 +5,7 @@ interface AirCrispCardProps {
     aliment: AirCrispAliment;
   }
 
-export default function airCrispCard({aliment} : AirCrispCardProps) {
+export default function AirCrispCard({aliment} : AirCrispCardProps) {
     return (
 
         <div className="card airCrispCard" style={{margin:"5px", width:"260px"}}>
